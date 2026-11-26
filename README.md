@@ -525,6 +525,20 @@ sudo docker stop id
 </details>
 
 <details>
+  <summary><h3>Using Coolify</h3></summary>
+
+- Create a new resource in Coolify and choose `Docker Compose`, pointing it to this repo.
+- Set the compose file path to `docker-compose.coolify.yml`.
+- In the `Environment Variables` tab, fill the four required variables: `BOT_TOKEN`, `OWNER_ID`, `TELEGRAM_API`, `TELEGRAM_HASH`. Deployment is blocked until they are set.
+- Add any optional variable from the [config fields](#2-setting-up-config-file) in the same tab. They are injected into the container and read automatically, so no `config.py` is needed.
+- `BASE_URL` and its domain are wired automatically through Coolify magic env (`SERVICE_URL_APP_80`) and routed to the internal web port `80`. Set a domain on the service to enable the torrent/nzb file selector.
+- Downloads are kept in the `mltb-downloads` volume across redeploys.
+
+------
+
+</details>
+
+<details>
   <summary><h3>Using Docker Compose Plugin</h3></summary>
 
 - Install docker compose plugin
