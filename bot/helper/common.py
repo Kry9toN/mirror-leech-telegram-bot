@@ -320,6 +320,9 @@ class TaskConfig:
                 or "STOP_DUPLICATE" not in self.user_dict
                 and Config.STOP_DUPLICATE
             )
+            if (not self.up_dest and default_upload == "ml") or self.up_dest == "ml":
+                self.up_dest = "ml"
+                return
             if (not self.up_dest and default_upload == "rc") or self.up_dest == "rc":
                 self.up_dest = self.user_dict.get("RCLONE_PATH") or Config.RCLONE_PATH
             elif (not self.up_dest and default_upload == "gd") or self.up_dest == "gd":

@@ -38,6 +38,7 @@ class Config:
     JD_PASS = ""
     LEECH_DUMP_CHAT = ""
     LEECH_FILENAME_PREFIX = ""
+    LOCAL_STORAGE_PATH = ""
     LEECH_SPLIT_SIZE = 2097152000
     MEDIA_GROUP = False
     HYBRID_LEECH = False
@@ -142,7 +143,7 @@ class Config:
         converted_value = cls._convert(attr, value)
         if isinstance(converted_value, str):
             converted_value = converted_value.strip()
-        if attr == "DEFAULT_UPLOAD" and converted_value not in {"gd", "bh", "gf"}:
+        if attr == "DEFAULT_UPLOAD" and converted_value not in {"gd", "bh", "gf", "ml"}:
             return "rc"
         if attr in {
             "BASE_URL",

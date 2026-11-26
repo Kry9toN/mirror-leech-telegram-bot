@@ -96,7 +96,7 @@ Note: Only mb and gb are supported or write in bytes without unit!"""
 
 upload = """<b>Upload Destination</b>: -up
 
-/cmd link -up rc/gd/rcl/gdl/bh/gf (rcl: to select rclone config, remote & path | gdl: To select token.pickle, gdrive id | gf: upload to GoFile) using buttons
+/cmd link -up rc/gd/rcl/gdl/bh/gf/ml (rcl: to select rclone config, remote & path | gdl: To select token.pickle, gdrive id | gf: upload to GoFile | ml: keep on local storage without upload) using buttons
 You can directly add the upload path: -up remote:dir/subdir or -up Gdrive_id or -up id/username (telegram) or -up id/username|topic_id (telegram)
 If DEFAULT_UPLOAD is `rc` then you can pass up: `gd` to upload using gdrive tools to GDRIVE_ID.
 If DEFAULT_UPLOAD is `gd` then you can pass up: `rc` to upload to RCLONE_PATH.

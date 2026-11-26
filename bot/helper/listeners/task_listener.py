@@ -1,4 +1,5 @@
-from aiofiles.os import path as aiopath, listdir, remove
+from aiofiles.os import path as aiopath, listdir, remove, makedirs
+from aioshutil import move
 from asyncio import sleep, gather
 from html import escape
 from requests import utils as rutils
@@ -335,6 +336,16 @@ class TaskListener(TaskConfig):
                 sync_to_async(drive.upload),
             )
             del drive
+        elif self.up_dest == "ml":
+            LOGGER.info(f"Local Storage Name: {self.name}")
+            dest_dir = Config.LOCAL_STORAGE_PATH or f"{DOWNLOAD_DIR}storage"
+            await makedirs(dest_dir, exist_ok=True)
+            dest_path = f"{dest_dir}/{self.name}"
+            if await aiopath.exists(dest_path):
+                dest_path = f"{dest_dir}/{self.mid}-{self.name}"
+            await move(up_path, dest_path)
+            await self.on_upload_complete(None, 0, 0, 0, rclone_path=dest_path)
+            return
         else:
             LOGGER.info(f"Rclone Upload Name: {self.name}")
             RCTransfer = RcloneTransferHelper(self)

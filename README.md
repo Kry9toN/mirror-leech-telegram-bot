@@ -298,7 +298,9 @@ Fill up rest of the fields. Meaning of each field is discussed below.
 
 - `UPLOAD_PATHS` (`Dict`): Send Dict of keys that have path values. Example: {"path 1": "remote:rclonefolder", "path 2": "gdrive1 id", "path 3": "tg chat id", "path 4": "mt:remote:", "path 5": "b: @username"}. 
 
-- `DEFAULT_UPLOAD` (`Str`): Whether `rc` to upload to `RCLONE_PATH` or `gd` to upload to `GDRIVE_ID` or `bh` to upload to `BUZZHEAVIER_ACCOUNT_ID`. Default is `rc`. Read More [HERE](https://github.com/anasty17/mirror-leech-telegram-bot/tree/master#upload).
+- `DEFAULT_UPLOAD` (`Str`): Whether `rc` to upload to `RCLONE_PATH` or `gd` to upload to `GDRIVE_ID` or `bh` to upload to `BUZZHEAVIER_ACCOUNT_ID` or `ml` to keep files on local storage without uploading. Default is `rc`. Read More [HERE](https://github.com/anasty17/mirror-leech-telegram-bot/tree/master#upload).
+
+- `LOCAL_STORAGE_PATH` (`Str`): Folder where `ml` mirrors are kept. Use `/mirror link -up ml` or set `DEFAULT_UPLOAD = "ml"` to download without any upload. Default is `/app/downloads/storage` (persisted by the `mltb-downloads` volume on Coolify).
 
 - `STATUS_UPDATE_INTERVAL` (`Int`): Time in seconds after which the progress/status message will be updated. Recommended `10` seconds at least.
 

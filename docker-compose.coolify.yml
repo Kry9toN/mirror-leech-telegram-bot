@@ -10,6 +10,8 @@ services:
       - OWNER_ID=${OWNER_ID:?}
       - TELEGRAM_API=${TELEGRAM_API:?}
       - TELEGRAM_HASH=${TELEGRAM_HASH:?}
+      - DEFAULT_UPLOAD=${DEFAULT_UPLOAD:-rc}
+      - LOCAL_STORAGE_PATH=${LOCAL_STORAGE_PATH:-/app/downloads/storage}
       - DATABASE_URL=${DATABASE_URL:-}
       - DATABASE_NAME=${DATABASE_NAME:-mltb}
       - UPSTREAM_REPO=${UPSTREAM_REPO:-}
